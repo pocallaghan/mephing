@@ -27,7 +27,7 @@
         </copy>
         <copy file="templates/helper.php.tpl" tofile="${path.code.helper}Data.php" overwrite="true">
             <filterchain>
-                <replacetokens beingtoken="{{" endtoken="}}">
+                <replacetokens begintoken="{{" endtoken="}}">
                     <token key="NAMESPACE" value="${module.namespace}" />
                     <token key="MODULE" value="${module.name}" />
                 </replacetokens>
