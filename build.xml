@@ -3,6 +3,13 @@
 
     <property file="build.properties" />
 
+    <taskdef name="versiontask" classname="phing.tasks.my.VersionNumberTask" />
+
+    <target name="getVersion">
+      <versiontask versionprop="module.versionstr"/>
+      <echo msg="${module.version}" />
+    </target>
+
     <fileset dir="${path.root}" id="projectFiles">
         <exclude name="mephing/**" />
         <exclude name=".**" />
@@ -48,8 +55,8 @@
         <mkdir dir="${path.design.admin}" />
     </target>
 
-    <target name="build">
-        <tar destfile="releases/${module.namespace}_${module.name}.tar" compression="gzip">
+    <target name="build" depends="getVersion">
+        <tar destfile="releases/${module.namespace}_${module.name}_${module.versionstr}.tar" compression="gzip">
             <fileset refid="projectFiles" />
         </tar>
     </target>
