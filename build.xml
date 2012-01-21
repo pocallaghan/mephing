@@ -15,7 +15,7 @@
                 </replacetokens>
             </filterchain>
         </copy>
-        <copy file="templates/module.xml" tofile="${path.etc}${module.namespace}_${module.name}.xml" overwrite="true">
+        <copy file="templates/module.xml" tofile="${path.modules}${module.namespace}_${module.name}.xml" overwrite="true">
             <filterchain>
                 <replacetokens begintoken="{{" endtoken="}}">
                     <token key="NAMESPACE" value="${module.namespace}" />
