@@ -13,7 +13,7 @@
         </models>
         <helpers>
             <{{FOO}}>
-                <class>{{NAMESPACE}}_{{MODULE}}_Model</class>
+                <class>{{NAMESPACE}}_{{MODULE}}_Helper</class>
             </{{FOO}}>
         </helpers>
     </global>
