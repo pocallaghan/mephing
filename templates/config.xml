@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <module>
+        <{{NAMESPACE}}_{{MODULE}}>
+            <version>{{VERSION}}</version>
+        </{{NAMESPACE}}_{{MODULE}}>
+    </module>
+    <global>
+        <models>
+            <{{FOO}}>
+                <class>{{NAMESPACE}}_{{MODULE}}_Model</class>
+            </{{FOO}}>
+        </models>
+        <helpers>
+            <{{FOO}}>
+                <class>{{NAMESPACE}}_{{MODULE}}_Model</class>
+            </{{FOO}}>
+        </helpers>
+    </global>
+</config>

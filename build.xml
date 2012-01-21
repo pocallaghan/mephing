@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="mephing" default="main">
     <property file="build.properties" />
-    <target name="main">
+    <target name="generate">
         <echo msg="Creating folders..." />
-        <mkdir dir="${base.dir}app/etc" />
-        <mkdir dir="${base.dir}app/code" />
+        <copy file="templates/config.xml" tofile="${path.code}${module.codepool}/${module.namespace}/${module.name}/etc/config.xml" overwrite="true">
+            <filterchain>
+                <replacetokens begintoken="{{" endtoken="}}">
+                    <token key="NAMESPACE" value="${module.namespace}" />
+                    <token key="MODULE" value="${module.name}" />
+                    <token key="CODEPOOL" value="${module.codepool}" />
+                    <token key="ACTIVE" value="${module.enabled}" />
+                    <token key="VERSION" value="${module.version}" />
+                    <token key="FOO" value="${module.foo}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+        <copy file="templates/module.xml" tofile="${path.etc}${module.namespace}_${module.name}.xml" overwrite="true">
+            <filterchain>
+                <replacetokens begintoken="{{" endtoken="}}">
+                    <token key="NAMESPACE" value="${module.namespace}" />
+                    <token key="MODULE" value="${module.name}" />
+                    <token key="CODEPOOL" value="${module.codepool}" />
+                    <token key="ACTIVE" value="${module.enabled}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+        <copy file="templates/helper.php.tpl" tofile="${path.code.helper}Data.php" overwrite="true">
+            <filterchain>
+                <replacetokens beingtoken="{{" endtoken="}}">
+                    <token key="NAMESPACE" value="${module.namespace}" />
+                    <token key="MODULE" value="${module.name}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
     </target>
 </project>

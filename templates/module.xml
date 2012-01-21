@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <{{NAMESPACE}}_{{MODULE}}>
+            <active>{{ACTIVE}}</active>
+            <codePool>{{CODEPOOL}}</codePool>
+        </{{NAMESPACE}}_{{MODULE}}>
+    </modules>
+</config>
