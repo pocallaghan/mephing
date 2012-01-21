@@ -25,7 +25,7 @@
                 </replacetokens>
             </filterchain>
         </copy>
-        <copy file="templates/helper.php.tpl" tofile="${path.code.helper}Data.php" overwrite="true">
+        <copy file="templates/helper.php.tpl" tofile="${path.helper}Data.php" overwrite="true">
             <filterchain>
                 <replacetokens begintoken="{{" endtoken="}}">
                     <token key="NAMESPACE" value="${module.namespace}" />
@@ -33,5 +33,11 @@
                 </replacetokens>
             </filterchain>
         </copy>
+        <mkdir dir="${path.model}" />
+        <mkdir dir="${path.controllers}" />
+        <mkdir dir="${path.sql}" />
+        <mkdir dir="${path.block}" />
+        <mkdir dir="${path.design.front}" />
+        <mkdir dir="${path.design.admin}" />
     </target>
 </project>
