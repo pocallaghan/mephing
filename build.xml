@@ -3,7 +3,7 @@
     <property file="build.properties" />
     <target name="generate">
         <echo msg="Creating folders..." />
-        <copy file="templates/config.xml" tofile="${path.code}${module.codepool}/${module.namespace}/${module.name}/etc/config.xml" overwrite="true">
+        <copy file="templates/config.xml" tofile="${path.etc}config.xml" overwrite="true">
             <filterchain>
                 <replacetokens begintoken="{{" endtoken="}}">
                     <token key="NAMESPACE" value="${module.namespace}" />
