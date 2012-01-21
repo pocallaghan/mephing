@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="mephing" default="main">
+
     <property file="build.properties" />
+
+    <fileset dir="${path.root}" id="projectFiles">
+        <exclude name="mephing/**" />
+        <exclude name=".**" />
+    </fileset>
+
     <target name="generate">
         <echo msg="Creating folders..." />
         <copy file="templates/config.xml" tofile="${path.etc}config.xml" overwrite="true">
@@ -39,5 +46,11 @@
         <mkdir dir="${path.block}" />
         <mkdir dir="${path.design.front}" />
         <mkdir dir="${path.design.admin}" />
+    </target>
+
+    <target name="build">
+        <tar destfile="releases/${module.namespace}_${module.name}.tar" compression="gzip">
+            <fileset refid="projectFiles" />
+        </tar>
     </target>
 </project>
