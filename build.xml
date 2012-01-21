@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="mephing" default="main">
     <property file="build.properties" />
+    <target name="main">
+        <echo msg="Creating folders..." />
+        <mkdir dir="${base.dir}app/etc" />
+        <mkdir dir="${base.dir}app/code" />
+    </target>
 </project>
