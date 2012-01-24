@@ -17,7 +17,7 @@
 
     <target name="generate">
         <echo msg="Creating folders..." />
-        <copy file="templates/config.xml" tofile="${path.etc}config.xml" overwrite="true">
+        <copy file="templates/config.xml" tofile="${path.etc}config.xml" overwrite="true" mode="777">
             <filterchain>
                 <replacetokens begintoken="{{" endtoken="}}">
                     <token key="NAMESPACE" value="${module.namespace}" />
@@ -56,8 +56,10 @@
     </target>
 
     <target name="build" depends="getVersion">
+        <mkdir dir="releases" mode="777" />
         <tar destfile="releases/${module.namespace}_${module.name}_${module.versionstr}.tar" compression="gzip">
             <fileset refid="projectFiles" />
         </tar>
+        <chmod mode="777" file="releases/${module.namespace}_${module.name}_${module.versionstr}.tar" />
     </target>
 </project>
